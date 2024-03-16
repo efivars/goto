@@ -7,10 +7,14 @@ export const ExternalLink: React.FC<IExternalLink> = ({ href, openInNewTab = tru
   return (
     <a href={href} target={openInNewTab ? '_blank' : ''} className={styles.ExternalLink}>
       <span className={styles.Text}>{children}</span>
-      &nbsp;
-      <sup>
-        <FaArrowUpRightFromSquare className={styles.Icon} />
-      </sup>
+      {openInNewTab && (
+        <>
+          &nbsp;
+          <sup>
+            <FaArrowUpRightFromSquare className={styles.Icon} />
+          </sup>
+        </>
+      )}
     </a>
   );
 };
